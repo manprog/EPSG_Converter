@@ -1,0 +1,24 @@
+<div class="converter-container">
+  <h2>EPSG Converter</h2>
+  <form (ngSubmit)="onConvert()">
+    <div>
+      <label for="fromEPSG">Source EPSG:</label>
+      <input id="fromEPSG" type="text" [(ngModel)]="fromEPSG" name="fromEPSG" required>
+    </div>
+    <div>
+      <label for="xCoord">X Coordinate:</label>
+      <input id="xCoord" type="number" [(ngModel)]="xCoord" name="xCoord" required>
+    </div>
+    <div>
+      <label for="yCoord">Y Coordinate:</label>
+      <input id="yCoord" type="number" [(ngModel)]="yCoord" name="yCoord" required>
+    </div>
+    <button type="submit">Convert</button>
+  </form>
+
+  <div *ngIf="convertedCoords">
+    <h3>Converted Coordinates (EPSG:4326)</h3>
+    <p>Latitude: {{ convertedCoords.lat }}</p>
+    <p>Longitude: {{ convertedCoords.lng }}</p>
+  </div>
+</div>
